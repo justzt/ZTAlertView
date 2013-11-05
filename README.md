@@ -1,7 +1,7 @@
 ZTAlertView
 ===========
 
-A custom alertView implement UIView
+An ios custom alertView implement with UIView
 
 How to use
 ===========
@@ -31,7 +31,7 @@ How to use
     [alertView setButtonCornerRadius:7];
     [alertView show];
     
-as alert view must implement protocal method
+ as alert view must implement protocal method
     
     - (void)alertView:(id)alertView buttonClickedAtIndex:(int)buttonIndex{
       [ZTAlertView hidden];
