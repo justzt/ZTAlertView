@@ -31,7 +31,7 @@ How to use
     [alertView setButtonCornerRadius:7];
     [alertView show];
     
-as alert view must implement protocal
+as alert view must implement protocal method
     
     - (void)alertView:(id)alertView buttonClickedAtIndex:(int)buttonIndex{
       [ZTAlertView hidden];
