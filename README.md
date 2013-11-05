@@ -3,6 +3,8 @@ ZTAlertView
 
 An ios custom alertView implement with UIView
 
+{{git:https://github.com/justzt/ZTAlertView/blob/master/shortcat1.png?raw=true}}
+
 How to use
 ===========
 
