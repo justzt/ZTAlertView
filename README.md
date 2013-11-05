@@ -7,6 +7,7 @@ How to use
 ===========
 
 1 as notification view
+
     ZTAlertView *alertView = [[ZTAlertView alloc] initWithBackgroundImage:nil
                                                              contentIamge:[UIImage imageNamed:@"content"]
                                                                  describe:@"ok"
@@ -17,6 +18,7 @@ How to use
     [alertView show];
     
 2 as normal AlertView
+
     ZTAlertView *alertView = [[ZTAlertView alloc] initWithBackgroundImage:[UIImage imageNamed:@"alertBG"]
                                                                     title:@"ttt"
                                                                  subTitle:@"title"];
@@ -29,7 +31,8 @@ How to use
     [alertView setButtonCornerRadius:7];
     [alertView show];
     
-    must implement protocal
+as alert view must implement protocal
+    
     - (void)alertView:(id)alertView buttonClickedAtIndex:(int)buttonIndex{
       [ZTAlertView hidden];
     }
