@@ -2,8 +2,8 @@ ZTAlertView
 ===========
 
 An ios custom alertView implement with UIView
-![shartcat1](https://raw.github.com/justzt/ZTAlertView/master/shortcat1.png)
-![shartcat1](https://raw.github.com/justzt/ZTAlertView/master/shortcat1.png)
+
+![shartcat1](https://raw.github.com/justzt/ZTAlertView/master/shortcat1.png)         ![shartcat1](https://raw.github.com/justzt/ZTAlertView/master/shortcat1.png)
 
 How to use
 ===========
