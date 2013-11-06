@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #define ztAlertViewTag 123212
-#define iphone5 [UIScreen mainScreen].bounds.size.height > 480 ? YES : NO
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define zt_iphone5 [UIScreen mainScreen].bounds.size.height > 480 ? YES : NO
+#define zt_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 @protocol ZTAlertViewDelegate <NSObject>
 

@@ -40,7 +40,7 @@
     self = [super init];
     if (self) {
         // Initialization code
-        self.frame = CGRectMake(0, 0, 320, SCREEN_HEIGHT);
+        self.frame = CGRectMake(0, 0, 320, zt_SCREEN_HEIGHT);
         self.tag = ztAlertViewTag;
         self.backgroundColor = [UIColor clearColor];
         self.boxView = [[UIView alloc] init];
@@ -230,8 +230,8 @@
 - (void)buttonClicked:(UIButton*)button{
     if (ZTDelegate) {
         if ([ZTDelegate respondsToSelector:@selector(alertView:buttonClickedAtIndex:)]){
-            [ZTDelegate alertView:self buttonClickedAtIndex:button.tag];
-            NSLog(@"%d", button.tag);
+            [ZTDelegate alertView:self buttonClickedAtIndex:(int)button.tag];
+            NSLog(@"%d", (int)button.tag);
         }
     }
 }
