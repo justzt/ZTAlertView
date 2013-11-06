@@ -20,30 +20,61 @@
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(100, 100, 200, 35);
+    button.tag = 1;
     [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     [button setBackgroundImage:[UIImage imageNamed:@"buttonBg"] forState:UIControlStateNormal];
-    [button setTitle:@"test" forState:UIControlStateNormal];
+    [button setTitle:@"style1" forState:UIControlStateNormal];
     [self.window addSubview:button];
+    
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    button2.frame = CGRectMake(100, 180, 200, 35);
+    button2.tag = 2;
+    [button2 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [button2 setBackgroundImage:[UIImage imageNamed:@"buttonBg"] forState:UIControlStateNormal];
+    [button2 setTitle:@"style2" forState:UIControlStateNormal];
+    [self.window addSubview:button2];
+    
+    UIButton *button3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    button3.frame = CGRectMake(100, 250, 200, 35);
+    button3.tag = 3;
+    [button3 addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [button3 setBackgroundImage:[UIImage imageNamed:@"buttonBg"] forState:UIControlStateNormal];
+    [button3 setTitle:@"style3" forState:UIControlStateNormal];
+    [self.window addSubview:button3];
     return YES;
 }
 
 - (void)buttonAction:(UIButton*)button{
-//    ZTAlertView *alertView = [[ZTAlertView alloc] initWithBackgroundImage:[UIImage imageNamed:@"alertBG"]
-//                                                                    title:@"ttt"
-//                                                                 subTitle:@"title"];
-//    [alertView setCancelButtonWithName:@""
-//                          okButtonName:@""
-//                       backgroundImage:[UIImage imageNamed:@"buttonBg"]];
-
-    //as notification view like HUD
-    ZTAlertView *alertView = [[ZTAlertView alloc] initWithBackgroundImage:nil
-                                                             contentIamge:[UIImage imageNamed:@"content"]
-                                                                 describe:@"ok"
-                                                              delayHidden:1];
-    alertView.ZTDelegate = self;
-    [alertView setTitleColor:[UIColor redColor]];
-    [alertView setSubTitleColor:[UIColor redColor]];
-    [alertView setButtonCornerRadius:7];
+    ZTAlertView *alertView;
+    UIImage *bgImage = [UIImage imageNamed:@"buttonBg"];
+    switch (button.tag) {
+        case 1:{
+            alertView = [[ZTAlertView alloc] initWithBackgroundImage:nil
+                                                                     contentIamge:[UIImage imageNamed:@"content"]
+                                                                         describe:@"ok"
+                                                                      delayHidden:1];
+            [alertView setDescribeLabelColor:[UIColor greenColor]];
+            break;
+        }
+        case 2:
+        case 3:{
+            alertView = [[ZTAlertView alloc] initWithBackgroundImage:[UIImage imageNamed:@"alertBG"]
+                                                               title:@"title"
+                                                            subTitle:@"subTitle"];
+            if (button.tag == 2) {
+                [alertView setOneButtonWithName:@"ok" backgroundImage:bgImage];
+            }else{
+                [alertView setTwoButtonWithName:@"cancel" backImg:bgImage okButtonName:@"ok" backImg:bgImage];
+            }
+            [alertView setTitleColor:[UIColor redColor]];
+            [alertView setSubTitleColor:[UIColor redColor]];
+            alertView.ZTDelegate = self;
+            [alertView setButtonCornerRadius:4];
+            break;
+        }
+        default:
+            break;
+    }
     [alertView show];
 }
 

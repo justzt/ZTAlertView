@@ -115,29 +115,31 @@
 }
 
 //只要一个按钮的时候条用此方法
-- (void)setCancelButtonWithName:(NSString*)cName backgroundImage:(UIImage*)image{
-    [self setCancelButtonWithName:cName okButtonName:nil backgroundImage:image];
+- (void)setOneButtonWithName:(NSString*)cName backgroundImage:(UIImage*)image{
+    [self setTwoButtonWithName:cName backImg:image okButtonName:nil backImg:nil];
 }
 
 //需要取消和确定都显示条用此方法
-- (void)setCancelButtonWithName:(NSString*)cName okButtonName:(NSString*)oName backgroundImage:(UIImage*)image{
+- (void)setTwoButtonWithName:(NSString*)cName backImg:(UIImage*)img1 okButtonName:(NSString*)oName backImg:(UIImage*)img2{
     CGRect subTitleFrame = ((UILabel*)[self viewWithTag:TagForSubTitleLabel]).frame;
     // 添加取消按钮
-    self.cancleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    cancleButton.frame = CGRectMake(MarginLeft, 2*MarginTop+CGRectGetMaxY(subTitleFrame), oName == nil ? BOX_WIDTH-2*MarginLeft : 110, 30);
-    [cancleButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    cancleButton.tag = 0;
-    [cancleButton setBackgroundImage:image forState:UIControlStateNormal];
-    [cancleButton setTitle:cName forState:UIControlStateNormal];
-    [self.boxView addSubview:cancleButton];
-    
+    if (self.cancelButtonName == nil) {
+        self.cancleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        cancleButton.frame = CGRectMake(MarginLeft, 2*MarginTop+CGRectGetMaxY(subTitleFrame), oName == nil ? BOX_WIDTH-2*MarginLeft : 110, 30);
+        [cancleButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        cancleButton.tag = 0;
+        [cancleButton setBackgroundImage:img1 forState:UIControlStateNormal];
+        [cancleButton setTitle:cName forState:UIControlStateNormal];
+        [self.boxView addSubview:cancleButton];
+    }
+
     // 添加确定按钮
     if (oName != nil) {
         self.okButton = [UIButton buttonWithType:UIButtonTypeCustom];
         okButton.frame = CGRectMake(CGRectGetMaxX(cancleButton.frame)+MarginLeft, CGRectGetMinY(cancleButton.frame), 110, 30);
         [okButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         okButton.tag = 1;
-        [okButton setBackgroundImage:image forState:UIControlStateNormal];
+        [okButton setBackgroundImage:img2 forState:UIControlStateNormal];
         [okButton setTitle:oName forState:UIControlStateNormal];
         [self.boxView addSubview:okButton];
     }

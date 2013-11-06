@@ -40,9 +40,9 @@
 //图片alert, 内容部分只有图片的alert view,可以设置延迟隐藏时间，d<1不隐藏
 - (id)initWithBackgroundImage:(UIImage*)backgroundImg contentIamge:(UIImage*)contentImg describe:(NSString*)des delayHidden:(int)d;
 //只要一个按钮的时候条用此方法
-- (void)setCancelButtonWithName:(NSString*)cName backgroundImage:(UIImage*)image;
+- (void)setOneButtonWithName:(NSString*)cName backgroundImage:(UIImage*)image;
 //需要取消和确定都显示条用此方法
-- (void)setCancelButtonWithName:(NSString*)cName okButtonName:(NSString*)oName backgroundImage:(UIImage*)image;
+- (void)setTwoButtonWithName:(NSString*)cName backImg:(UIImage*)img1 okButtonName:(NSString*)oName backImg:(UIImage*)img2;
 //需要圆角按钮调用此方法
 - (void)setButtonCornerRadius:(CGFloat)value;
 //更改标题颜色
